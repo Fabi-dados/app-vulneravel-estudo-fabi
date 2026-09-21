@@ -1,0 +1,8 @@
+rules:
+  - id: hardcoded-admin-password
+    languages:
+      - javascript
+    message: "Senha hardcoded encontrada."
+    severity: ERROR
+    patterns:
+      - pattern: const ADMIN_PASSWORD = "$PASSWORD"
