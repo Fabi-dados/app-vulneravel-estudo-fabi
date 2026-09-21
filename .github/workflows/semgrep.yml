@@ -14,5 +14,5 @@ jobs:
       image: semgrep/semgrep
     steps:
       - uses: actions/checkout@v4
-      - run: semgrep scan --config auto
+      - run: - run: semgrep scan --config auto --config p/security-audit --config p/secrets --config p/nodejs
       
