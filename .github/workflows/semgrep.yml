@@ -1,0 +1,19 @@
+name: Semgrep CE scan
+
+on:
+  workflow_dispatch:
+  pull_request: {}
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  semgrep:
+    runs-on: ubuntu-latest
+    container:
+      image: semgrep/semgrep
+    steps:
+      - uses: actions/checkout@v4
+      - run: semgrep scan --config semgrep-rules.yml --config p/security-audit
