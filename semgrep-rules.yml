@@ -6,3 +6,10 @@ rules:
     severity: ERROR
     patterns:
       - pattern: const ADMIN_PASSWORD = "$PASSWORD"
+
+  - id: weak-md5-hash
+    languages:
+      - javascript
+    message: "Uso de MD5 para hash encontrado. MD5 não é adequado para senhas."
+    severity: ERROR
+    pattern: crypto.createHash('md5')
