@@ -1,6 +1,7 @@
 # .github/workflows/semgrep.yml
 name: Semgrep CE scan
 on:
+  workflow_dispatch:
   pull_request: {}
   push:
     branches: ["main"]
