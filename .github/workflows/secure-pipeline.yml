@@ -36,7 +36,7 @@ jobs:
         with:
           config: p/owasp-top-ten p/secrets
 
-            sca:
+  sca:
     runs-on: ubuntu-latest
     needs: sast
 
