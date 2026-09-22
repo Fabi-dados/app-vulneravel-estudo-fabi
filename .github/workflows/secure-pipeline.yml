@@ -6,7 +6,7 @@ on:
   push:
     branches:
       - feature/app-vulneravel
-      
+
 permissions:
   contents: read
 
@@ -23,3 +23,15 @@ jobs:
         uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  sast:
+    runs-on: ubuntu-latest
+    needs: secrets-scan
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: SAST - Semgrep
+        uses: returntocorp/semgrep-action@v1
+        with:
+          config: p/owasp-top-ten p/secrets
